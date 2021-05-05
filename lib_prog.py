@@ -14,38 +14,33 @@ class TugasClientServer :
 
     def operator_matematika ( self, argument ) :
         switcher = {
-            1 : "+" ,
-            2 : "-" ,
-            3 : "*" ,
-            4 : "/" ,
+            1 : "T ∧ F = F" ,
+            2 : "F ∨ T = T" ,
+            3 : "T ∧ (T ∧ F) = F" ,
+            4 : "F ∨ (T ∧ T) = T" ,
         }
         return switcher.get ( argument , "+" )
 
-    def calc ( self, angka1 , operator , angka2 ) :
+    def calc ( self, operator ) :
         if (operator==1):
-            hasil = angka1 + angka2
+            hasil = "2"
         elif (operator==2) : 
-            hasil = angka1 - angka2 
+            hasil = "1"
         elif (operator==3) :
-            hasil = angka1 * angka2 
+            hasil = "2" 
         elif (operator==4) :
-            hasil = angka1 / angka2 
+            hasil = "1" 
         else :
-            hasil = angka1 + angka2
+            hasil = "2"
         return hasil
 
 
     def get_question_answer ( self ):
         operator = random.randint ( 1,4 )
-        if (operator==4) :
-            angka1 = random.randint ( 10,99 )
-            angka2 = random.randint ( 1,10 )
-        else :
-            angka1 = random.randint ( 0,99 )
-            angka2 = random.randint ( 0,99 )        
+           
         self.start_time = datetime.now()
-        self.question = self.start_time.strftime("%H:%M:%S") + " " + str(angka1) + " " + self.operator_matematika(operator) + " " + str(angka2)
-        self.answer = self.calc ( angka1 , operator , angka2 )
+        self.question = self.start_time.strftime("%H:%M:%S") + " " + " " + self.operator_matematika(operator) + " " + "\n1.True" + "2.False"
+        self.answer = self.calc (  operator  )
 
     def get_question ( self ):
         return self.question 

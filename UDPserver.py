@@ -31,7 +31,7 @@ while 1:
 
     answerClient, clientAddr = serverSocket.recvfrom(2048)
     answerClient = answerClient.decode()
-    answerClient = round(float(answerClient), 2)
+  #  answerClient = round(float(answerClient), 2)
 
     print("jawaban client :", answerClient)
 
